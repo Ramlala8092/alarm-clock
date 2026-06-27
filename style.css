@@ -1,0 +1,22 @@
+body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 80vh;
+        }
+        #first{
+            text-align: center;
+            width: 80%;
+            height: 60%;
+            border: 3px solid white;
+            border-radius: 20%;
+            outline: 3px solid goldenrod;
+        }
+        #aa{
+            width: 10%;
+        }
+        #first button{
+            padding: 5px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+        }
