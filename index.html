@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 80vh;
+        }
+        #first{
+            text-align: center;
+            width: 80%;
+            height: 60%;
+            border: 3px solid white;
+            border-radius: 20%;
+            outline: 3px solid goldenrod;
+        }
+        #aa{
+            width: 10%;
+        }
+        #first button{
+            padding: 5px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+        }
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="first">
+        <h4>Set Alarm</h4>
+          <p id="cTime"></p>
+          <label for="time">Enter Time</label>
+          <input type="time" id="tt">
+          <br><br>
+          <label for="ampm">AM/PM</label>
+          <input type="text" id="aa">
+          <p id="demo"></p>
+          <button id="btn">SET</button>
+          <button id="btn1">STOP</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
