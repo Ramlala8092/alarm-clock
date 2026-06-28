@@ -10,7 +10,7 @@ let song = new Audio("music/alarmTon.mp3");
 song.loop = true;
 let intervalId;
 
-setInterval(() => {
+const bigInterval = setInterval(() => {
     let color = "#" + Math.floor(Math.random() * 16777215)
         .toString(16)
         .padStart(6, "0");
@@ -92,7 +92,7 @@ btn1.addEventListener("click", () => {
     song.pause();
     song.currentTime = 0;
 
-    clearInterval(intervalId);
+    clearInterval(bigInterval);
     intervalId = null;
 
     document.body.style.backgroundColor = "white";
