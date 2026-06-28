@@ -5,7 +5,6 @@ const dd = document.body;
 const div = document.getElementById("first");
 const cTime = div.querySelector("#cTime");
 const tt1 = document.getElementById("tt");
- const aa1 = document.querySelector('input[name="ampm"]:checked');
 
 let song = new Audio("music/alarmTon.mp3");
 song.loop = true;
@@ -18,15 +17,15 @@ setInterval(() => {
 
     document.body.style.backgroundColor = color;
 
-    let r = parseInt(color.substring(1,3),16);
-    let g = parseInt(color.substring(3,5),16);
-    let b = parseInt(color.substring(5,7),16);
+    let r = parseInt(color.substring(1, 3), 16);
+    let g = parseInt(color.substring(3, 5), 16);
+    let b = parseInt(color.substring(5, 7), 16);
 
-    let bright = (r*299 + g*587+b*144)/1000;
+    let bright = (r * 299 + g * 587 + b * 144) / 1000;
 
-    if(bright < 128){
+    if (bright < 128) {
         document.body.style.color = "white";
-    }else{
+    } else {
         document.body.style.color = "black";
     }
 }, 5000);
@@ -35,13 +34,13 @@ setInterval(() => {
     let date = new Date();
 
     let hour = String(date.getHours());
-    let minute = String(date.getMinutes()).padStart(2,"0");
-    let second = String(date.getSeconds()).padStart(2,"0");
+    let minute = String(date.getMinutes()).padStart(2, "0");
+    let second = String(date.getSeconds()).padStart(2, "0");
 
-    let ampm = hour >= 12 ? "PM":"AM";
+    let ampm = hour >= 12 ? "PM" : "AM";
 
-    hour = hour%12||12;
-    hour = String(hour).padStart(2,"0");
+    hour = hour % 12 || 12;
+    hour = String(hour).padStart(2, "0");
 
     cTime.textContent = `${hour} : ${minute} : ${second} : ${ampm}`;
 }, 1000);
@@ -55,8 +54,15 @@ btn.addEventListener("click", () => {
 
         const dd = document.getElementById("demo");
         const time = document.getElementById("tt").value;
-        const aa = document.querySelector('input[name="ampm"]:checked').value;
 
+        const selected = document.querySelector('input[name="ampm"]:checked');
+
+        if (!selected) {
+            alert("Please select AM or PM");
+            return;
+        }
+
+        const aa = selected.value;
         let [ihour, iminute] = time.split(":");
 
         let hour = String(date.getHours()).padStart(2, "0");
@@ -85,8 +91,18 @@ btn.addEventListener("click", () => {
 btn1.addEventListener("click", () => {
     song.pause();
     song.currentTime = 0;
+
+    clearInterval(intervalId);
+    intervalId = null;
+
     document.body.style.backgroundColor = "white";
+
     tt1.value = "";
-    aa1.value = "";
+
+    document.querySelectorAll('input[name="ampm"]').forEach(r => {
+        r.checked = false;
+    });
+
+    document.getElementById("demo").textContent = "";
 });
 
