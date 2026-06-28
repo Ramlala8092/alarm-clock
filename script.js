@@ -4,6 +4,8 @@ const btn1 = document.getElementById("btn1");
 const dd = document.body;
 const div = document.getElementById("first");
 const cTime = div.querySelector("#cTime");
+const tt1 = document.getElementById("tt");
+ const aa1 = document.querySelector('input[name="ampm"]:checked');
 
 let song = new Audio("music/alarmTon.mp3");
 song.loop = true;
@@ -53,7 +55,7 @@ btn.addEventListener("click", () => {
 
         const dd = document.getElementById("demo");
         const time = document.getElementById("tt").value;
-        const aa = document.getElementById("aa").value;
+        const aa = document.querySelector('input[name="ampm"]:checked').value;
 
         let [ihour, iminute] = time.split(":");
 
@@ -84,5 +86,7 @@ btn1.addEventListener("click", () => {
     song.pause();
     song.currentTime = 0;
     document.body.style.backgroundColor = "white";
+    tt1.value = "";
+    aa1.value = "";
 });
 
