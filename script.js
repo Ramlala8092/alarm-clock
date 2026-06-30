@@ -69,6 +69,9 @@ btn.addEventListener("click", () => {
 
     let [ihour, iminute] = time.split(":");
 
+    ihour = ihour%12 || 12;
+    ihour = String(ihour).padStart(2, "0");
+
     document.getElementById("demo").textContent =
         `Set for: ${ihour}:${iminute} ${aa}`;
 
